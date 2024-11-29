@@ -1,4 +1,4 @@
-name: Windows
+name: Ubuntu
 
 on: 
   workflow_dispatch:
@@ -9,9 +9,9 @@ on:
   
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
     - name: Initializing Setup
-      run: echo "Hello, World!""
+      run: echo HelloWorld
