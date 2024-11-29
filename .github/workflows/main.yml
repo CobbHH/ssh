@@ -1,0 +1,17 @@
+name: Windows
+
+on: 
+  workflow_dispatch:
+    inputs:
+      pincode:
+        description: 'Six digit Pin'
+        required: false
+  
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Initializing Setup
+      run: echo "Hello, World!""
