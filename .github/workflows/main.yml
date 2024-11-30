@@ -1,4 +1,4 @@
-name: Ubuntu
+name: Ubuntu Ngrok
 
 on: 
   workflow_dispatch:
@@ -13,5 +13,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Initializing Setup
-      run: hostname -I
+    - name: Installing snap and openssh
+      run: sudo apt install snapd openssh-server
+    - name: Checking SSH Status
+      run: sudo systemctl status ssh
+    - name: Installing ngrok
+      run: sudo snap install ngrok
+    - name: Authorizing ngrok
+      run: ngrok authtoken 2pY7TE3RNWIaFIv6JeZJfEDV59W_3RnrZ779kVdURtk8TcwpC
+    - name: Starting ngrok
+      run: ngrok tcp 22
+    - name: Holding server
+      run: cat - /dev/tty
