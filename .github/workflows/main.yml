@@ -1,4 +1,4 @@
-name: Ubuntu
+name: Ubuntu Ngrok
 
 on: 
   workflow_dispatch:
@@ -22,8 +22,8 @@ jobs:
     - name: Installing ngrok
       run: sudo snap install ngrok
     - name: Authorizing ngrok
-      run: ngrok authtoken ${{ github.event.inputs.authtoken }}
+      run: sudo ngrok authtoken ${{ github.event.inputs.authtoken }}
     - name: Starting ngrok
-      run: ngrok tcp 22
+      run: sudo ngrok tcp 22
     - name: Holding server
       run: cat - /dev/tty
