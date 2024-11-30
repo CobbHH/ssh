@@ -1,11 +1,11 @@
-name: Ubuntu Ngrok
+name: Ubuntu
 
 on: 
   workflow_dispatch:
     inputs:
-      pincode:
-        description: 'Six digit Pin'
-        required: false
+      authtoken:
+        description: 'ngrok authtoken'
+        required: true
   
 jobs:
   build:
@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Updating apt
+      run: apt-get update
     - name: Installing snap and openssh
       run: sudo apt install snapd openssh-server
     - name: Checking SSH Status
@@ -20,7 +22,7 @@ jobs:
     - name: Installing ngrok
       run: sudo snap install ngrok
     - name: Authorizing ngrok
-      run: ngrok authtoken 2pY7TE3RNWIaFIv6JeZJfEDV59W_3RnrZ779kVdURtk8TcwpC
+      run: ngrok authtoken ${{ github.event.inputs.authtoken }}
     - name: Starting ngrok
       run: ngrok tcp 22
     - name: Holding server
