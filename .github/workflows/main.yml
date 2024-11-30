@@ -16,7 +16,7 @@ jobs:
     - name: Updating apt
       run: sudo apt-get update
     - name: Installing openssh
-      run: sudo apt install snapd openssh-server
+      run: sudo apt install openssh-server
     - name: Checking SSH Status
       run: sudo systemctl status ssh
     - name: Installing ngrok
@@ -24,6 +24,6 @@ jobs:
     - name: Authorizing ngrok
       run: sudo ngrok authtoken ${{ github.event.inputs.authtoken }}
     - name: Starting ngrok
-      run: sudo ngrok tcp 22
+      run: sudo ngrok http 80
     - name: Holding server
       run: cat - /dev/tty
