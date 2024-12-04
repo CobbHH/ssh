@@ -18,4 +18,4 @@ jobs:
     - name: tor
       run: sudo apt install tor
     - name: webserver
-      run: sudo env "PATH=$PATH" /home/runner/work/ssh/ssh/onion 8080
+      run: ./onion 8080
