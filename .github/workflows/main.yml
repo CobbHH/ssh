@@ -18,4 +18,4 @@ jobs:
     - name: tor
       run: sudo apt install tor
     - name: webserver
-      run: ./onion 8080
+      run: sudo ./onion 8080
