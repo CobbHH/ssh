@@ -16,6 +16,6 @@ jobs:
     - name: http.server
       run: python -m http.server 8080 & 
     - name: tor
-      run: sudo apt install tor openssl libevent zlib
+      run: sudo apt install tor
     - name: webserver
       run: ./onion 8080
