@@ -19,5 +19,9 @@ jobs:
       run: npm install -g localtunnel
     - name: tunnel password
       run: curl https://loca.lt/mytunnelpassword
+    - name: test
+      run: ls
+    - name: test
+      run: cd ../ | tree
     - name: webserver
       run: lt --port 8080
