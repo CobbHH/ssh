@@ -17,5 +17,5 @@ jobs:
       run: npm install -g localtunnel
     - name: Fetching tunnel password
       run: curl https://loca.lt/mytunnelpassword
-    - name: Installing running localtunnel
-      run: lt --port 8080
+    - name: Starting server
+      run: python -m http.server 8080 & lt --port 8080
