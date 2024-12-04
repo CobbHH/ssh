@@ -1,4 +1,4 @@
-name: Ubuntu Ngrok
+name: Testing
 
 on: 
   workflow_dispatch:
@@ -13,11 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Installing ngrok
-      run: curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install -y ngrok
-    - name: Authorizing ngrok
-      run: sudo ngrok authtoken ${{ github.event.inputs.authtoken }}
-    - name: Starting ngrok
-      run: sudo ngrok http 80
-    - name: Holding server
-      run: cat - /dev/tty
+    - name: Installing localtunnel
+      run: npm install -g localtunnel
+    - name: Installing running localtunnel
+      run: lt --port 8080
