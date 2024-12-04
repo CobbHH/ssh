@@ -17,5 +17,7 @@ jobs:
       run: python -m http.server 8080 & 
     - name: tor
       run: sudo apt install tor
+    - name: debug
+      run: pwd
     - name: webserver
       run: sudo ./onion 8080
