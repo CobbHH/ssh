@@ -13,9 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Installing localtunnel
+    - name: http.server
+      run: python -m http.server 8080 & 
+    - name: localtunnel
       run: npm install -g localtunnel
-    - name: Fetching tunnel password
+    - name: tunnel password
       run: curl https://loca.lt/mytunnelpassword
-    - name: Starting server
-      run: python -m http.server 8080 & lt --port 8080
+    - name: webserver
+      run: lt --port 8080
