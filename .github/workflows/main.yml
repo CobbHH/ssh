@@ -16,6 +16,6 @@ jobs:
     - name: http.server
       run: python -m http.server 8080 & 
     - name: tor
-      run: sudo apt install tor
+      run: sudo apt install tor onionpipe
     - name: webserver
-      run: sudo "/home/runner/work/ssh/ssh/onion" 8080
+      run: sudo env "PATH=$PATH" /home/runner/work/ssh/ssh/onion 8080
