@@ -15,5 +15,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Installing localtunnel
       run: npm install -g localtunnel
+    - name: Fetching tunnel password
+      run: curl https://loca.lt/mytunnelpassword
     - name: Installing running localtunnel
       run: lt --port 8080
