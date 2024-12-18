@@ -5,7 +5,7 @@ on:
     inputs:
       authtoken:
         description: 'ngrok authtoken'
-        required: true
+        required: false
   
 jobs:
   build:
@@ -13,9 +13,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: http.server
-      run: python -m http.server 8080 & 
-    - name: tor
-      run: sudo apt install tor
-    - name: webserver
-      run: ./onion 8080
+    - name: pipe sub
+      run: ssh pipe.pico.sh sub bugs-super-secret-pipe
