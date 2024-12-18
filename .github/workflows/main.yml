@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: pipe sub
-      run: ssh pipe.pico.sh sub bugs-super-secret-pipe
+      run: ssh pipe.pico.sh sub bug
